@@ -1,6 +1,9 @@
 <div class="user-info">
   <form [formGroup]="reactiveForm" (ngSubmit)="onUserSave(reactiveForm.value)">
     <h3>User information</h3>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Favorite food" value="Sushi">
+    </mat-form-field>
     <label for="first-name">First name:
       <input type="text" id="first-name" formControlName="firstName">
     </label>
@@ -13,6 +16,7 @@
     <label for="phone">Phone:
       <input type="text" id="phone" formControlName="phone">
     </label>
-    <button type="submit" [disabled]="!reactiveForm.valid">SaveUser</button>
+    <!--<button mat-button>Click me!</button>-->
+    <button mat-raised-button color="primary" type="submit" [disabled]="!reactiveForm.valid">SaveUser</button>
   </form>
 </div>

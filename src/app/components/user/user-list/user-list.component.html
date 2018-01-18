@@ -1,3 +1,8 @@
-<p>
-  user-list works!
-</p>
+<mat-list>
+  <a
+    mat-list-item
+    href="#"
+    *ngFor="let user of userlist">
+    {{ user.id }} {{ user.firstName }} {{ user.lastName }}
+  </a>
+</mat-list>
