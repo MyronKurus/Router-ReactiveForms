@@ -1,0 +1,18 @@
+<div class="user-info">
+  <form [formGroup]="reactiveForm" (ngSubmit)="onUserSave(reactiveForm.value)">
+    <h3>User information</h3>
+    <label for="first-name">First name:
+      <input type="text" id="first-name" formControlName="firstName">
+    </label>
+    <label for="last-name">Last name:
+      <input type="text" id="last-name" formControlName="lastName">
+    </label>
+    <label for="email">E-mail:
+      <input type="text" id="email" formControlName="email">
+    </label>
+    <label for="phone">Phone:
+      <input type="text" id="phone" formControlName="phone">
+    </label>
+    <button type="submit" [disabled]="!reactiveForm.valid">SaveUser</button>
+  </form>
+</div>
