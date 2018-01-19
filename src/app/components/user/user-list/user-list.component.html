@@ -1,8 +1,7 @@
-<mat-list>
-  <a
-    mat-list-item
-    href="#"
-    *ngFor="let user of userlist">
-    {{ user.id }} {{ user.firstName }} {{ user.lastName }}
-  </a>
-</mat-list>
+<div class="row">
+  <h3>List of users</h3>
+  <ul>
+    <li *ngFor="let user of userlist"><a [routerLink]="['/user', user.id]">{{ user.id }} {{ user.firstName }} {{ user.lastName }}</a></li>
+  </ul>
+  <a routerLink="/create" class="btn btn-success">Create user</a>
+</div>

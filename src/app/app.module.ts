@@ -9,19 +9,26 @@ import { UserComponent } from './components/user/user.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import { UserService } from './services/user.service';
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
-// import { Route } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatListModule, MatInputModule } from '@angular/material';
-//
-// const appRoutes: Route[] = [
-//   {
-//     path: 'create',
-//     component: UserEditComponent
-//   }
-// ];
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: UserListComponent
+  },
+  {
+    path: 'create',
+    component: UserEditComponent
+  },
+  {
+    path: 'user/:id',
+    component: UserComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -35,9 +42,7 @@ import { MatButtonModule, MatListModule, MatInputModule } from '@angular/materia
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatListModule,
-    MatInputModule,
+    RouterModule.forRoot(appRoutes),
     StoreModule.provideStore({users}),
     EffectsModule.run(UserEffects)
   ],

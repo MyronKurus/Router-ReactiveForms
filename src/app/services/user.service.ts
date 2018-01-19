@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../store/app-state.model';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user.model';
-import { createUserAction } from '../store/user/user.action';
+import {createUserAction, getCurrentUserAction} from '../store/user/user.action';
 
 @Injectable()
 export class UserService {
@@ -15,6 +15,10 @@ export class UserService {
 
   createUser(data) {
     this.store.dispatch(createUserAction(data));
+  }
+
+  getUserById(id) {
+    this.store.dispatch(getCurrentUserAction(id));
   }
 
 }

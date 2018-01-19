@@ -13,9 +13,16 @@ export const S_SAVE_CURRENT_USER = 'S_SAVE_CURRENT_USER';
 export const S_CREATE_USER = 'S_CREATE_USER';
 
 export function createUserAction(user): Action {
-  console.log('createUser action')
   return {
     type: U_CREATE_USER,
     payload: { ...user }
+  };
+}
+
+export function getCurrentUserAction(id): Action {
+  console.log('getCurrentUserAction', id);
+  return {
+    type: U_GET_CURRENT_USER,
+    payload: { ...id }
   };
 }

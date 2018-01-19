@@ -1,5 +1,5 @@
 import { User } from '../../models/user.model';
-import {S_CREATE_USER} from './user.action';
+import {S_CREATE_USER, S_GET_CURRENT_USER} from './user.action';
 
 const initialState: User[] = [
   {
@@ -25,12 +25,20 @@ function generateUser(currentState: User[], data) {
   return currentState;
 }
 
+function getUserById(currentState: User[], id: number) {
+  let user = null;
+  currentState.forEach(item => {
+    if (item.id === id) { user = item; }
+  });
+  return user;
+}
+
 export function users(state = initialState, { type, payload } ) {
   switch ( type ) {
     case S_CREATE_USER:
-      // console.log(payload);
-      // ;
       return generateUser(state, payload);
+    case S_GET_CURRENT_USER:
+      return getUserById(state, payload);
     default: return state;
   }
 }
