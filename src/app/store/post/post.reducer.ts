@@ -1,6 +1,5 @@
-import {Post} from '../../models/post.model';
-import {S_CREATE_POST} from './post.action';
-import {post} from 'selenium-webdriver/http';
+import { Post } from '../../models/post.model';
+import { S_CREATE_POST } from './post.action';
 
 const postsInitial: Post[] = [
   {

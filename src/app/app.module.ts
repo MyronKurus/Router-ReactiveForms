@@ -34,12 +34,18 @@ const appRoutes: Routes = [
   },
   {
     path: 'user/:id',
-    component: UserComponent
+    component: UserComponent,
+    children: [
+      {
+        path: 'post',
+        component: PostComponent
+      }
+    ]
   },
-  {
+  /*{
     path: 'user/:id/post',
     component: PostComponent
-  }
+  }*/
 ];
 
 @NgModule({

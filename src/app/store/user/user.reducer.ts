@@ -1,7 +1,7 @@
 import { User } from '../../models/user.model';
-import {S_CREATE_USER, S_GET_CURRENT_USER} from './user.action';
+import { S_CREATE_USER } from './user.action';
 
-const initialState: User[] = [
+const initialUsers: User[] = [
   {
     id: 1,
     firstName: 'John',
@@ -18,6 +18,8 @@ const initialState: User[] = [
   },
 ];
 
+
+
 function generateUser(currentState: User[], data) {
   const id = currentState.length + 1;
   const user: User = {id, ...data};
@@ -25,20 +27,10 @@ function generateUser(currentState: User[], data) {
   return currentState;
 }
 
-function getUserById(currentState: User[], data) {
-  let user = null;
-  currentState.forEach(item => {
-    if (item.id === data.id) { user = item; }
-  });
-  return user;
-}
-
-export function users(state = initialState, { type, payload } ) {
+export function users( state: User[] = initialUsers, { type, payload } ) {
   switch ( type ) {
     case S_CREATE_USER:
       return generateUser(state, payload);
-    case S_GET_CURRENT_USER:
-      return getUserById(state, payload);
     default: return state;
   }
 }

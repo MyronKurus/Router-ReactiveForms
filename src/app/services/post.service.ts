@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {AppState} from '../store/app-state.model';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs/Observable';
-import {Post} from '../models/post.model';
-import {createPostAction} from '../store/post/post.action';
+import { Injectable } from '@angular/core';
+import { AppState } from '../store/app-state.model';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { Post } from '../models/post.model';
+import { createPostAction } from '../store/post/post.action';
 
 @Injectable()
 export class PostService {

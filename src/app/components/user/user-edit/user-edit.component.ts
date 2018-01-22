@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../../services/user.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../../services/user.service';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
   styleUrls: ['./user-edit.component.css']
 })
-export class UserEditComponent implements OnInit {
+export class UserEditComponent {
 
   reactiveForm: FormGroup;
-  // firstName: string;
-  // lastName: string;
-  // phone: number;
-  // email: string;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
     this.reactiveForm = formBuilder.group({
@@ -24,11 +21,7 @@ export class UserEditComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
-
-  onUserSave(user) {
-    // console.log(user);
+  onUserSave(user: User) {
     this.userService.createUser(user);
   }
 
