@@ -1,6 +1,12 @@
 <h1>Welcome to {{ title }}!</h1>
+
+<nav class="navbar navbar-default">
+  <ul class="nav navbar-nav">
+  <li><a routerLink="/">Users</a></li>
+  <li><a routerLink="/posts">Posts</a></li>
+  </ul>
+</nav>
+
 <div class="container">
-  <!--<app-user-list></app-user-list>-->
-  <!--<app-user-edit></app-user-edit>-->
   <router-outlet></router-outlet>
 </div>

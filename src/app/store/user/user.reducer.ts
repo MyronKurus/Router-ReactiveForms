@@ -16,7 +16,7 @@ const initialState: User[] = [
     email: 'jane.smith@email.com',
     phone: '2223334456'
   },
-]
+];
 
 function generateUser(currentState: User[], data) {
   const id = currentState.length + 1;
@@ -25,10 +25,10 @@ function generateUser(currentState: User[], data) {
   return currentState;
 }
 
-function getUserById(currentState: User[], id: number) {
+function getUserById(currentState: User[], data) {
   let user = null;
   currentState.forEach(item => {
-    if (item.id === id) { user = item; }
+    if (item.id === data.id) { user = item; }
   });
   return user;
 }

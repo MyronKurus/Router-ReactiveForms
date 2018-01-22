@@ -1,0 +1,8 @@
+<div class="post-list">
+  <div class="post" *ngFor="let post of postList; let i = index">
+    <a [routerLink]="['/user', post.userId]">Written by user id {{post.userId}}</a>
+    <h4>{{post.title}}</h4>
+    <p>{{post.text}}</p>
+    <hr>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import {S_CREATE_USER, S_GET_CURRENT_USER, U_CREATE_USER, U_GET_CURRENT_USER} from '../store/user/user.action';
 import 'rxjs/add/operator/switchMap';
+import {S_CREATE_POST, U_CREATE_POST} from '../store/post/post.action';
 
 @Injectable()
 export class UserEffects {
@@ -24,6 +25,15 @@ export class UserEffects {
       console.log(action.payload);
       return Observable.of({
         type: S_GET_CURRENT_USER,
+        payload: action.payload
+      });
+    });
+
+  @Effect() createPost$ = this.actions$
+    .ofType(U_CREATE_POST)
+    .switchMap((action) => {
+      return Observable.of({
+        type: S_CREATE_POST,
         payload: action.payload
       });
     });

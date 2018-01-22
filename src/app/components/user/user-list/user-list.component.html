@@ -1,7 +1,7 @@
 <div class="row">
   <h3>List of users</h3>
   <ul>
-    <li *ngFor="let user of userlist"><a [routerLink]="['/user', user.id]">{{ user.id }} {{ user.firstName }} {{ user.lastName }}</a></li>
+    <li *ngFor="let user of userList"><a [routerLink]="['/user', user.id]">{{ user.id }} {{ user.firstName }} {{ user.lastName }}</a></li>
   </ul>
   <a routerLink="/create" class="btn btn-success">Create user</a>
 </div>

@@ -1,5 +1,7 @@
 import {User} from '../models/user.model';
+import {Post} from '../models/post.model';
 
 export interface AppState {
-  data: User[];
+  users: User[];
+  posts: Post[];
 }

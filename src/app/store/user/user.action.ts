@@ -23,6 +23,6 @@ export function getCurrentUserAction(id): Action {
   console.log('getCurrentUserAction', id);
   return {
     type: U_GET_CURRENT_USER,
-    payload: { ...id }
+    payload: { id }
   };
 }

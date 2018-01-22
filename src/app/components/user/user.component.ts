@@ -11,16 +11,16 @@ import {User} from '../../models/user.model';
 export class UserComponent implements OnInit {
 
   id: number;
-  user;
+  user: User;
 
   constructor(private route: ActivatedRoute, private  userService: UserService) {
     this.id = +this.route.snapshot.params['id'];
-    this.user = this.userService.getUserById(this.id);
-    console.log(this.user);
+    this.userService.getUserById$(this.id).subscribe((user: User) => {
+      this.user = user;
+    });
   }
 
   ngOnInit() {
-
   }
 
 }

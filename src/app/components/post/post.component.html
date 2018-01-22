@@ -1,0 +1,11 @@
+<h3>This is post</h3>
+  <h3>User information</h3>
+  <div class="row">
+    <div class="col-sm-2"><label for="first-name">Title:</label></div>
+    <div class="col-sm-4"><input type="text" id="first-name" class="form-control" [(ngModel)]="title"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2"><label for="last-name">Text:</label></div>
+    <div class="col-sm-4"><textarea type="text" id="last-name" class="form-control" [(ngModel)]="text"></textarea></div>
+  </div>
+  <button class="btn btn-primary" type="submit" (click)="onPostCreated(title, text)">Save Post</button>

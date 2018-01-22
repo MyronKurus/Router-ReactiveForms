@@ -9,16 +9,24 @@ import { UserComponent } from './components/user/user.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import { UserService } from './services/user.service';
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PostComponent } from './components/post/post.component';
+import { PostListComponent } from './components/post/post-list/post-list.component';
+import { PostService } from './services/post.service';
+import {posts} from './store/post/post.reducer';
 
 const appRoutes: Routes = [
   {
     path: '',
     component: UserListComponent
+  },
+  {
+    path: 'posts',
+    component: PostListComponent
   },
   {
     path: 'create',
@@ -27,6 +35,10 @@ const appRoutes: Routes = [
   {
     path: 'user/:id',
     component: UserComponent
+  },
+  {
+    path: 'user/:id/post',
+    component: PostComponent
   }
 ];
 
@@ -35,7 +47,9 @@ const appRoutes: Routes = [
     AppComponent,
     UserComponent,
     UserListComponent,
-    UserEditComponent
+    UserEditComponent,
+    PostComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,11 +57,12 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.provideStore({users}),
+    StoreModule.provideStore({users, posts}),
     EffectsModule.run(UserEffects)
   ],
   providers: [
-    UserService
+    UserService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })
